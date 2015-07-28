@@ -11,7 +11,7 @@
 
 		<template id="products_item" inherit_id="website_sale.products_item" customize_show="True" active="True" name="Quick add to Cart (product list)">
 			<xpath expr="//div[@itemtype='http://schema.org/Product']" position="inside">
-                <div t-if="len(product.product_variant_ids) == 1" class="quick_add_to_cart input-group">
+                <div t-if="len(product.product_variant_ids) == 1 and not user_id.partner_id.name == 'Public user'" class="quick_add_to_cart input-group">
                     <span class="input-group-addon">
                         <a t-attf-href="#" class="mb8 js_add_cart_json">
                             <i class="fa fa-minus"></i>
